@@ -1,0 +1,110 @@
+name: anaconda-mlflow-tracking-prune
+description: Anaconda MLFlow Tracking Server Prune
+
+variables:
+  #
+  # All defined values here can be over-written from AE5 secrets of the same name.
+  #
+
+  MLFLOW_TRACKING_URI: http://0.0.0.0:8086/
+  MLFLOW_REGISTRY_URI: http://0.0.0.0:8086/
+  MLFLOW_TRACKING_TOKEN: SECRET-TOKEN
+
+  # Measured in days
+  MLFLOW_TRACKING_ENTITY_TTL: 30
+
+commands:
+  #
+  # Run Time Commands
+  #
+
+  Report:
+    env_spec: default
+    unix: python -m src.anaconda.mlflow.tracking.prune.handler --dry-run
+
+  Prune:
+    env_spec: default
+    unix: python -m src.anaconda.mlflow.tracking.prune.handler
+
+  #
+  # Development Time Commands
+  #
+
+  bash:
+    env_spec: development
+    unix: bash
+
+  test:unit:
+    env_spec: development
+    unix: coverage run --append --rcfile=.coveragerc -m unittest discover test/unit/anaconda/mlflow/tracking/prune
+
+  coverage:
+    env_spec: development
+    unix: |
+      coverage report
+      coverage html
+      coverage xml
+
+  clean:
+    env_spec: development
+    unix: |
+      rm -rf .coverage htmlcov coverage.xml
+
+  lint:
+    env_spec: development
+    unix: |
+      pylint src
+      isort --check --diff .
+      black --line-length=120 --target-version=py310 --check --diff .
+
+  lint:fix:
+    env_spec: development
+    unix: |
+      isort .
+      black --line-length=120 --target-version=py310 .
+
+  build:docs:
+    env_spec: development
+    unix: |
+      sphinx-build -b html docs/source docs/build
+
+channels:
+    - default
+    - https://conda.anaconda.org/conda-forge/
+    - https://conda.anaconda.org/joshburt/
+
+platforms:
+  - linux-64
+  - osx-64
+  - osx-arm64
+  - win-64
+
+env_specs:
+  default:
+    description: Runtime Environment
+    packages:
+      - python=3.10.8
+      - mlflow=2.0.1
+      - ipykernel
+      - anaconda.enterprise.server.contracts>=0.8.1
+      - anaconda.enterprise.server.common.sdk>=0.4.6
+      - anaconda.mlflow.tracking.sdk>=0.10.1
+
+  development:
+    description: Development Environment
+    packages:
+      - python=3.10.8
+      - mlflow=2.0.1
+      - ipykernel
+      - isort
+      - black
+      - black-jupyter
+      - pylint
+      - coverage
+      - pyyaml
+      - sphinx
+      - sphinx-rtd-theme
+      - myst-parser
+      - anaconda.enterprise.server.contracts>=0.8.1
+      - anaconda.enterprise.server.common.sdk>=0.4.6
+      - anaconda.mlflow.tracking.sdk>=0.10.1
