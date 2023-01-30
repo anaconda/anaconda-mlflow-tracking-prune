@@ -14,7 +14,7 @@ sys.path.insert(0, os.path.abspath("../../src/anaconda/mlflow/tracking/prune"))
 project = "Anaconda MLFlow Tracking Server Pruning Service"
 copyright = "Anaconda, Inc"
 author = "Joshua C. Burt"
-release = "0.7.2"
+release = "0.7.3"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
