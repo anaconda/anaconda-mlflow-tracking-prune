@@ -105,11 +105,6 @@ Deployment
 
     > ae5 job create --command "Prune" --schedule "0 0 * * *" --name "scheduled anaconda.mlflow.tracking.prune" "anaconda.mlflow.tracking.prune" -variable MLFLOW_TRACKING_ENTITY_TTL=10
 
-Automated Deployments
---------
-
-* See [automation notebook](https://github.com/Anaconda-Platform/anaconda-enterprise-mlops-orchestration/blob/main/notebooks/deployment/tracking_server_prune.ipynb) for an example.
-
 Anaconda Project Runtime Commands
 --------
 These commands are used to start the server and perform the various administrative tasks.
