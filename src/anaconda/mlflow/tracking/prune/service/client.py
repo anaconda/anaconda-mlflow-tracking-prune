@@ -3,10 +3,10 @@
 from datetime import datetime, timedelta
 from typing import Optional
 
+from ae5_tools import demand_env_var
 from mlflow.entities import Experiment, Run, ViewType
 from mlflow.entities.model_registry import ModelVersion, RegisteredModel
 
-from anaconda.enterprise.server.common.sdk import demand_env_var_as_int
 from anaconda.mlflow.tracking.sdk import AnacondaMlFlowClient
 
 from ..dto.pruneable import Pruneable
@@ -20,7 +20,7 @@ class PruneClient(AnacondaMlFlowClient):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.oldest_allowed_timestamp = round(
-            (datetime.utcnow() - timedelta(days=demand_env_var_as_int(name="MLFLOW_TRACKING_ENTITY_TTL"))).timestamp()
+            (datetime.utcnow() - timedelta(days=int(demand_env_var(name="MLFLOW_TRACKING_ENTITY_TTL")))).timestamp()
             * 1000
         )
         print(f"Stale cut-off: {self.oldest_allowed_timestamp}")

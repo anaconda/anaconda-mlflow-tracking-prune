@@ -1,14 +1,5 @@
 #  MLFlow Tracking Server Pruning Service
 
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=shapeandshare_anaconda.mlflow.tracking.prune&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=shapeandshare_anaconda.mlflow.tracking.prune)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=shapeandshare_anaconda.mlflow.tracking.prune&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=shapeandshare_anaconda.mlflow.tracking.prune)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=shapeandshare_anaconda.mlflow.tracking.prune&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=shapeandshare_anaconda.mlflow.tracking.prune)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=shapeandshare_anaconda.mlflow.tracking.prune&metric=coverage)](https://sonarcloud.io/summary/new_code?id=shapeandshare_anaconda.mlflow.tracking.prune)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=shapeandshare_anaconda.mlflow.tracking.prune&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=shapeandshare_anaconda.mlflow.tracking.prune)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=shapeandshare_anaconda.mlflow.tracking.prune&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=shapeandshare_anaconda.mlflow.tracking.prune)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=shapeandshare_anaconda.mlflow.tracking.prune&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=shapeandshare_anaconda.mlflow.tracking.prune)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=shapeandshare_anaconda.mlflow.tracking.prune&metric=bugs)](https://sonarcloud.io/summary/new_code?id=shapeandshare_anaconda.mlflow.tracking.prune)
-
 Overview
 --------
 What is resource pruning?

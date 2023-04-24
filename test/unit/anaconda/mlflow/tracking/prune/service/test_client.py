@@ -164,7 +164,6 @@ class TestClient(unittest.TestCase):
                 with patch(
                     "src.anaconda.mlflow.tracking.prune.service.client.PruneClient.filter_runs", mock_filter_runs
                 ):
-
                     mock_model_version: ModelVersion = self.factory.generate_mock_model_version()
 
                     # Perform test
@@ -199,7 +198,6 @@ class TestClient(unittest.TestCase):
                         "src.anaconda.mlflow.tracking.prune.service.client.PruneClient.get_pruneable_runs",
                         mock_get_pruneable_runs,
                     ):
-
                         # perform test
                         pruneable: Pruneable = self.client.get_pruneables()
 
@@ -208,7 +206,6 @@ class TestClient(unittest.TestCase):
                         self.assertEqual(pruneable.models, [])
 
     def test_get_pruneables(self):
-
         mock_registered_models: list[RegisteredModel] = [self.factory.generate_mock_registered_model()]
 
         mock_model_version_one: ModelVersion = self.factory.generate_mock_model_version()
@@ -246,7 +243,6 @@ class TestClient(unittest.TestCase):
                         "src.anaconda.mlflow.tracking.prune.service.client.PruneClient.get_pruneable_runs",
                         mock_get_pruneable_runs,
                     ):
-
                         # perform test
                         pruneable: Pruneable = self.client.get_pruneables()
 
