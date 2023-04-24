@@ -1,5 +1,5 @@
 """ Command For Pruning Process """
-from anaconda.enterprise.server.common.sdk import demand_env_var_as_int
+from ae5_tools import demand_env_var
 from anaconda.enterprise.server.contracts import BaseModel
 
 from .dto.pruneable import Pruneable
@@ -23,7 +23,7 @@ class PruneCommand(BaseModel):
     def execute(self, dry_run: bool) -> None:
         """Default entry point for command. Executes the pruning process."""
 
-        print(f"Pruning threshold set to: {demand_env_var_as_int(name='MLFLOW_TRACKING_ENTITY_TTL')}")
+        print(f"Pruning threshold set to: {int(demand_env_var(name='MLFLOW_TRACKING_ENTITY_TTL'))}")
 
         # Determine (by business logic) which runs and models we want to prune
         print("[START] Resource Pruneablilty Analysis")
